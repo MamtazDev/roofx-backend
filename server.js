@@ -5,6 +5,8 @@ const connectDB = require("./config/db");
 const PORT = process.env.PORT || 8000;
 
 const contactUsRoutes = require("./routes/contactUs.routes");
+const bookAppointmentRoutes = require("./routes/bookAppointment.routes");
+const subscriberRoutes = require("./routes/subscriber.routes");
 
 const app = express();
 
@@ -15,6 +17,8 @@ connectDB();
 
 // routes
 app.use("/api/contactUs", contactUsRoutes);
+app.use("/api/bookAppointment", bookAppointmentRoutes);
+app.use("/api/subscribe", subscriberRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server is Running");
