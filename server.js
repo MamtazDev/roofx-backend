@@ -4,12 +4,17 @@ const connectDB = require("./config/db");
 
 const PORT = process.env.PORT || 8000;
 
+const contactUsRoutes = require("./routes/contactUs.routes");
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
 connectDB();
+
+// routes
+app.use("/api/contactUs", contactUsRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server is Running");
